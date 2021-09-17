@@ -1,0 +1,23 @@
+syntax = "proto3";
+package trytry;
+option go_package = "./;pb";
+
+service HUSTClass {
+    rpc CreateClass(Class) returns (Class);
+    rpc UpdateClass(Class) returns (Class);
+    rpc DeleteClass(DeleteClassRequest) returns (DeleteClassResponse);
+}
+message Class {
+    string id = 1;
+    string name = 2;
+    string class_id = 3;
+    int64 available_slot = 4;
+    string day_of_week = 5;
+}
+message DeleteClassRequest {
+    string id = 1;
+    string class_id = 2;
+}
+message DeleteClassResponse {
+    bool success_delete_class = 1;
+}

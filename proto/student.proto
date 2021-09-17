@@ -1,0 +1,48 @@
+syntax = "proto3";
+package trytry;
+option go_package = "./;pb";
+
+service HUSTStudent {
+    rpc CreateStudent(Student) returns (Student);
+    rpc UpdateStudent(UpdateStudentRequest) returns (Student);
+    rpc ChangePassword(ChangePasswordRequest) returns (ChangePasswordResponse);
+    rpc FindStudent(FindStudentRequest) returns (FindStudentResponse);
+}
+message Student {
+    string id = 1;
+    string name = 2;
+    string class = 3;
+    string address = 4;
+    string phone_number = 5;
+    string email = 6;
+    string password = 7;
+    string mssv = 8;
+}
+message UpdateStudentRequest {
+    string mssv = 1;
+    string name = 2;
+    string class = 3;
+    string address = 4;
+    string phone_number = 5;
+    string email = 6;
+}
+message ChangePasswordRequest {
+    string mssv = 1;
+    string name = 2;
+    string old_password = 3;
+    string new_password = 4;
+}
+message ChangePasswordResponse {
+    bool success_change_password = 1;
+}
+message FindStudentRequest {
+    string mssv = 1;
+}
+message FindStudentResponse {
+    string mssv =1 ;
+    string name = 2;
+    string class = 3;
+    string phone_number = 4;
+    string email = 5;
+    string address = 6;
+}
